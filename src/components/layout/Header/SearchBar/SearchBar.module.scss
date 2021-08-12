@@ -1,0 +1,32 @@
+//.input {
+//  width: calc(100% - 20px);
+//  border-radius: 5px;
+//  border: 1px solid #000;
+//  margin: 12px;
+//  padding: 12px;
+//}
+
+.input {
+  border: 2px solid #dadada;
+  border-radius: 7px;
+  height: 32px;
+  &:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+  }
+  &::placeholder {
+    padding-left: 8px;
+  }
+}
+
+.component {
+  display: flex;
+  //flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  height: 32px;
+}

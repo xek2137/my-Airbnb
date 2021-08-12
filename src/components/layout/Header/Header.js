@@ -1,9 +1,11 @@
 import React from 'react';
+// import styles from './Header.module.scss';
+import SearchBar from './SearchBar/SearchBar';
 
 const Header = () => (
-  <div>
-    header
-  </div>
+  <header>
+    <SearchBar />
+  </header>
 );
 
 export default Header;

@@ -1,7 +1,11 @@
+@import "global";
+
 .section {
   height: 100%;
-  background-color: #A52A2AFF;
+  background-color: #a1ecef;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
