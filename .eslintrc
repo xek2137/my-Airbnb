@@ -27,6 +27,12 @@
     "react-app"
   ],
   "rules": {
+    "react/jsx-tag-spacing": [
+      2,
+      {
+        "beforeSelfClosing": "always"
+      }
+    ],
     "indent": [
       "error",
       2,
