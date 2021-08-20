@@ -1,11 +1,14 @@
 @import "global";
 
-.section {
-  height: 100%;
-  background-color: #a1ecef;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
+.container:before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: url('../components/assets/images/Runeterra_Map.jpg') !important;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  animation: chbg 15s infinite alternate;
+  z-index: -1;
 }

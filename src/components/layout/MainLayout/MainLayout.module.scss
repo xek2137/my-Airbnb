@@ -1,0 +1,20 @@
+@import "src/styles/global";
+
+.menuContainer {
+  width: 100%;
+  border: 1px solid #afafaf;
+  margin: 10px 0;
+  padding: 8px 12px;
+  background-color: rgba(64, 80, 80, 0.6);
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.menuItem {
+  display: inline-block;
+}

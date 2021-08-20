@@ -1,7 +1,10 @@
+@import "src/styles/global";
+
 .input {
   border: 2px solid #dadada;
   border-radius: 7px;
   height: 32px;
+  margin: 0 8px 4px;
   &:focus {
     outline: none;
     border-color: #9ecaed;
