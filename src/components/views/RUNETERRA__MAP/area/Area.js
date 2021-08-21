@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Area.module.scss';
-import img from '../../../assets/images/Wysoka_Srebrzysta.jpg';
+import img from '../../../../assets/images/Wysoka_Srebrzysta.jpg';
 import PropTypes from 'prop-types';
 
 const Area = ({name, city, rating, heroes}) => (
@@ -37,10 +37,11 @@ const Area = ({name, city, rating, heroes}) => (
 );
 
 Area.propTypes = {
-  name: PropTypes.string,
-  city: PropTypes.string,
-  rating: PropTypes.string,
-  heroes: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired,
+  heroes: PropTypes.string.isRequired,
+
 };
 
 export default Area;

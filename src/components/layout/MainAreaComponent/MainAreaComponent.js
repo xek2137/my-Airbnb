@@ -19,6 +19,6 @@ class MainAreaComponent extends Component {
 }
 
 MainAreaComponent.propTypes = {
-  areas: PropTypes.array,
+  areas: PropTypes.array.isRequired,
 };
 export default MainAreaComponent;

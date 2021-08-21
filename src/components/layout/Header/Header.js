@@ -1,16 +1,16 @@
 import React from 'react';
-import SearchBar from './SearchBar/SearchBar';
+import SearchBar from '../../UI/SearchBar/SearchBar';
 import styles from './Header.module.scss';
 import {Container} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
-const Header = ({onSearch}) => {
+const Header = ({children}) => {
 
   return (
     <Container size="xxl" centerContent>
       <div className={`card ${styles.section}`}>
         <div className="card-body">
-          <SearchBar onSearch={onSearch} />
+          {children}
         </div>
       </div>
     </Container>
@@ -18,7 +18,8 @@ const Header = ({onSearch}) => {
 };
 
 Header.propTypes = {
-  onSearch: PropTypes.func,
+  // onSearch: PropTypes.func.isRequired,
+  children: PropTypes.node,
 };
 
 export default Header;

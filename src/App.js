@@ -6,6 +6,10 @@ import MainAreaComponent from './components/layout/MainAreaComponent/MainAreaCom
 import {myNewTheme} from './styles/theme';
 import styles from './styles/App.module.scss';
 import LoadingWidget from './components/UI/LoadingWidget/LoadingWidget';
+import SearchBar from './components/UI/SearchBar/SearchBar';
+import AppLayout from './components/layout/AppLayout/AppLayout';
+import Footer from './components/layout/Footer/Footer';
+import LoggedInContext from './context/loggedInContext';
 
 class App extends Component {
 
@@ -31,6 +35,7 @@ class App extends Component {
   state = {
     areas: this.areas,
     loading: true,
+    isLoggedIn: false,
   };
 
   searchHandler(term) {
@@ -52,16 +57,41 @@ class App extends Component {
   }
 
   render() {
+
+    const header = (
+      <Header>
+        <SearchBar onSearch={term => this.searchHandler(term)} />
+      </Header>
+    );
+    const menu = (
+      <MainLayout />
+    );
+    const content = (
+      this.state.loading
+        ? <LoadingWidget />
+        : <MainAreaComponent areas={this.state.areas} />
+    );
+    const footer = (
+      <Footer />
+    );
+
     return (
       <ChakraProvider resetCSS theme={myNewTheme}>
-        <div className={styles.container}>
-          <Header onSearch={(term) => this.searchHandler(term)} />
-          <MainLayout />
-          {this.state.loading
-            ? <LoadingWidget />
-            : <MainAreaComponent areas={this.state.areas} />
-          }
-        </div>
+        <LoggedInContext.Provider value={{
+          isLoggedIn: this.state.isLoggedIn,
+          login: () => this.setState({isLoggedIn: true}),
+          logout: () => this.setState({isLoggedIn: false}),
+        }}>
+
+          <div className={styles.container}>
+            <AppLayout
+              header={header}
+              menu={menu}
+              content={content}
+              footer={footer}
+            />
+          </div>
+        </LoggedInContext.Provider>
       </ChakraProvider>
     );
   }

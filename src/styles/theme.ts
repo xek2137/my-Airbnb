@@ -7,12 +7,15 @@ export const myNewTheme = extendTheme({
     global: {
       body: {
         bg: 'PHOTO',
+        p: {
+          // color: 'primary',
+        },
       },
     },
   },
   colors: {
     primary: '#845EC2',
-    secondary: '#FF6F91',
+    secondary: '#0BC5EA',
     highlight: '#00C9A7',
   },
   components: {
