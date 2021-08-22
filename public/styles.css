@@ -1,0 +1,21 @@
+/* Scrollbar V */
+* {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+ }
+
+/* Background setUp */
+body::after {
+  content: "";
+  background: url('./images/Runeterra_Map.jpg');
+  background-size: cover;
+  filter: blur(5px);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: -1;
+}

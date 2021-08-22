@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const Area = ({name, city, rating, heroes}) => (
   <div className={`card ${styles.area}`}>
     <div className="card-body">
-
       <div className="row">
         <div className="col-3">
           <img src={img} alt="" className="img-fluid img-thumbnail" />

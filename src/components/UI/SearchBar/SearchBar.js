@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import styles from './SearchBar.module.scss';
-import {Button, Container, Box} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-
 
 const SearchBar = ({onSearch}) => {
   const [term, setTerm] = useState('');
@@ -12,17 +10,17 @@ const SearchBar = ({onSearch}) => {
   };
 
   return (
-    <Container maxW="xl" centerContent>
-      <Box padding="4" maxW="3xl">
-        <input
-          className={styles.input}
-          placeholder="Search"
-          value={term}
-          onChange={e => setTerm(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && search()} />
-        <Button variant="search" h="32px" onClick={search}>Search</Button>
-      </Box>
-    </Container>
+    <div className="d-flex">
+      <input
+        className={styles.input}
+        placeholder="Search"
+        value={term}
+        onChange={e => setTerm(e.target.value)}
+        onKeyDown={e => e.key === 'Enter' && search()} />
+      <button className="ml-1 btn btn-primary" onClick={search}>
+        Search
+      </button>
+    </div>
   );
 };
 

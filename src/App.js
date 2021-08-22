@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {ChakraProvider} from '@chakra-ui/react';
 import Header from './components/layout/Header/Header';
 import MainLayout from './components/layout/MainLayout/MainLayout';
 import MainAreaComponent from './components/layout/MainAreaComponent/MainAreaComponent';
-import {myNewTheme} from './styles/theme';
 import styles from './styles/App.module.scss';
 import LoadingWidget from './components/UI/LoadingWidget/LoadingWidget';
 import SearchBar from './components/UI/SearchBar/SearchBar';
@@ -76,23 +74,18 @@ class App extends Component {
     );
 
     return (
-      <ChakraProvider resetCSS theme={myNewTheme}>
-        <LoggedInContext.Provider value={{
-          isLoggedIn: this.state.isLoggedIn,
-          login: () => this.setState({isLoggedIn: true}),
-          logout: () => this.setState({isLoggedIn: false}),
-        }}>
-
-          <div className={styles.container}>
-            <AppLayout
-              header={header}
-              menu={menu}
-              content={content}
-              footer={footer}
-            />
-          </div>
-        </LoggedInContext.Provider>
-      </ChakraProvider>
+      <LoggedInContext.Provider value={{
+        isLoggedIn: this.state.isLoggedIn,
+        login: () => this.setState({isLoggedIn: true}),
+        logout: () => this.setState({isLoggedIn: false}),
+      }}>
+        <AppLayout
+          header={header}
+          menu={menu}
+          content={content}
+          footer={footer}
+        />
+      </LoggedInContext.Provider>
     );
   }
 }

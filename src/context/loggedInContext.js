@@ -6,4 +6,6 @@ const LoggedInContext = React.createContext({
   logout: () => {},
 });
 
+LoggedInContext.displayName = 'LoggedInContext';
+
 export default LoggedInContext;

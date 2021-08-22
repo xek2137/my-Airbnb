@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import styles from './MainLayout.module.scss';
-import {Container} from '@chakra-ui/react';
 import LoggedInContext from '../../../context/loggedInContext';
 
 const MainLayout = () => {
@@ -15,7 +14,8 @@ const MainLayout = () => {
   };
 
   return (
-    <Container size="xxl" centerContent>
+    <div>
+
       <div className={styles.menuContainer}>
         <ul className={styles.menu}>
           <li className={styles.menuItem}>
@@ -29,7 +29,7 @@ const MainLayout = () => {
           </li>
         </ul>
       </div>
-    </Container>
+    </div>
   );
 };
 

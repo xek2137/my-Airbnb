@@ -1,0 +1,26 @@
+// custom variables
+$primary: #43bccd;
+$secondary: #8f2d56;
+$neon: #9ecaed;
+$btn-active-box-shadow: 0 0 10px $neon !important;
+$btn-focus-box-shadow: 0 0 14px $primary !important;
+
+// custom buttons
+.btn {
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    border-color: $neon;
+    box-shadow: 0 0 10px $neon;
+  }
+
+  .btn-check:focus + &,
+    &:focus {
+    outline: 0;
+    box-shadow: 0 0 10px $neon;
+  }
+}
+
+// import bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
