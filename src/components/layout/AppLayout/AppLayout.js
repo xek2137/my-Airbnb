@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import withClass from '../../../hoc/withClass';
 
 const AppLayout = ({header, menu, content, footer}) => {
   return (
-    <div>
-      <div className="">{header}</div>
+    <>
+      <div>{header}</div>
       <div className="container">{menu}</div>
       <div className="container">{content}</div>
       <div>{footer}</div>
-    </div>
+    </>
   );
 };
 
@@ -19,4 +20,4 @@ AppLayout.propTypes = {
   footer: PropTypes.node,
 };
 
-export default AppLayout;
+export default withClass(AppLayout, 'AppLayout');

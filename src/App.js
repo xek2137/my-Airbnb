@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Header from './components/layout/Header/Header';
 import MainLayout from './components/layout/MainLayout/MainLayout';
 import MainAreaComponent from './components/layout/MainAreaComponent/MainAreaComponent';
-import styles from './styles/App.module.scss';
 import LoadingWidget from './components/UI/LoadingWidget/LoadingWidget';
 import SearchBar from './components/UI/SearchBar/SearchBar';
 import AppLayout from './components/layout/AppLayout/AppLayout';
@@ -37,11 +36,7 @@ class App extends Component {
   };
 
   searchHandler(term) {
-    console.log('szukaj z app', term);
-    const areas = [...this.state.areas]
-      .filter(i => i.name
-        .toUpperCase()
-        .includes(term.toUpperCase()));
+    const areas = [...this.state.areas].filter(i => i.name.toUpperCase().includes(term.toUpperCase()));
     this.setState({areas});
   }
 
