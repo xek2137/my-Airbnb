@@ -3,8 +3,7 @@
 .input {
   border: 2px solid #dadada;
   border-radius: 7px;
-  height: 100%;
-  margin: 0 8px 4px;
+  margin: 0 8px;
   &:focus {
     outline: none;
     border-color: #9ecaed;
@@ -17,7 +16,6 @@
 
 .component {
   display: flex;
-  //flex-direction: column;
   justify-content: center;
   align-items: center;
 }

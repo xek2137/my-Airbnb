@@ -5,7 +5,7 @@ const withClass = (Component, className) => {
   return props => {
     return (
       <div className={className}>
-        <Component {...props} />;
+        <Component {...props} />
       </div>
     );
   };
