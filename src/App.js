@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 import Header from './components/layout/Header/Header';
 import MainLayout from './components/layout/MainLayout/MainLayout';
 import MainAreaComponent from './components/layout/MainAreaComponent/MainAreaComponent';
@@ -27,20 +27,39 @@ const backendAreas = [
   },
 ];
 
+const reducer = (state, action)=>{
+  switch (action.type) {
+    case 'set-areas':
+      return {...state, areas: action.areas};
+    case 'set-loading':
+      return {...state, loading: action.loading};
+    case 'login':
+      return {...state, isLoggedIn: true};
+    case 'logout':
+      return {...state, isLoggedIn: false};
+    default:
+      throw new Error('Something goes wrong:' + action.type);
+  }
+};
+
+const initialState = {
+  areas: [],
+  loading: true,
+  isLoggedIn: false,
+};
+
 const App = () => {
-  const [areas, setAreas] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const searchHandler = (term) => {
     const newAreas = [...backendAreas].filter(i => i.name.toUpperCase().includes(term.toUpperCase()));
-    setAreas(newAreas);
+    dispatch({type: 'set-areas', areas: newAreas});
   };
 
   useEffect(() => {
     setTimeout(() => {
-      setAreas(backendAreas);
-      setLoading(false);
+      dispatch({type: 'set-areas', areas: backendAreas});
+      dispatch({type: 'set-loading', loading: false});
     }, 1000);
   }, []);
 
@@ -53,18 +72,18 @@ const App = () => {
     <MainLayout />
   );
   const content = (
-    loading
+    state.loading
       ? <LoadingWidget />
-      : <MainAreaComponent areas={areas} />
+      : <MainAreaComponent areas={state.areas} />
   );
   const footer = (
     <Footer />
   );
   return (
     <LoggedInContext.Provider value={{
-      isLoggedIn: isLoggedIn,
-      login: () => setIsLoggedIn(true),
-      logout: () => setIsLoggedIn(false),
+      isLoggedIn: state.isLoggedIn,
+      login: () => dispatch({type: 'login'}),
+      logout: () => dispatch({type: 'logout'}),
     }}>
       <AppLayout
         header={header}

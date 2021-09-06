@@ -1,9 +1,14 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Area from '../../views/RUNETERRA__MAP/area/Area';
 import styles from './MainAreaComponent.module.scss';
 import PropTypes from 'prop-types';
 
-class MainAreaComponent extends Component {
+class MainAreaComponent extends PureComponent {
+
+  /* WITH React Component: */
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.props.areas === nextProps.areas ? false : true;
+  // }
 
   render() {
     const {areas} = this.props;
@@ -19,4 +24,5 @@ class MainAreaComponent extends Component {
 MainAreaComponent.propTypes = {
   areas: PropTypes.array.isRequired,
 };
+
 export default MainAreaComponent;
